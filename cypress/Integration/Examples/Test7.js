@@ -7,7 +7,7 @@ it('practice page handle mouse hover', function() {
 // mouse hover case
 cy.visit("https://rahulshettyacademy.com/AutomationPractice/");
 
-//cy.get(".mouse-hover-content").invoke('show') //show is the jquery function which is used to show the hidden elements as the cypress does not support such function which can perform this type of functionality
+//cy.get(".mouse-hover-content").invoke('show') //show is the jquery function which is used to show the hidden elements as the cypress does not support such function which can perform this type of functionality. invoke() is a Cypress command that wraps and executes jQuery methods.
 cy.contains('Top').click({ force: true })
 cy.wait(500)
 cy.url().should('include','top')
