@@ -65,7 +65,7 @@
 // Cypress is asynchronous in nature and there is no guarantee in sequence of execution, but cypress takes care of it																									
 // promise comes in rejection, resolved and pending																									
 // this promise is exists in the test scripts due to the asynchronous behaviour of some functions as click() for example, the click action needs wait till the 																									
-//actionalble field is visible (may cases are there where the button are disabled or not visible or the page takes time to  load any condition is possible!) 																									
+//actionalble field is visible (many cases are there where the button are disabled or not visible or the page takes time to  load any condition is possible!) 																									
 //so for such asynchronous behavious of the functions we need to use then(). When the cypress asynchrous functions are used then no need to mention the then() 																									
 //every time but it is mandatory to mention when the function is out of cypress or not supporting cypress																									
 																									
@@ -100,14 +100,47 @@
 // window alert is one of the browser event and will be triggered when alerts are opened or using this event we can fire any alert
 // so we are firing to that event through cypress to get access to that alert
 																									
+// Child tab case
+// cypress cannot switch to the new tab by default, we need to make some twick
+// we cannot switch to new window
+// only way to handle is - making appplication to load this page instead in the separate new tab we can load the new tab in same tab itself.
+// target= blank, is a attribute that opens the links in new tab everytime
+// when it opens in the new tab cypress cannot handle it
+// cypress uses jquery
+// using this jquery we can remove that target attribute at run time and envoke the dom(page) again, which means we are rebuilding the page again
+// as the attribute which was performing the action of opening the new tab is removed now, on performing click operator the link will open in the same tab
+// this is how this mechanism works to handle the child windows 
+// and that jquery function is "remove" which we need to use i.e removeAttr
 																									
+// cypress do not supports cross origins
+// i.e. cypress does not goes from the original domain to new domain (this for security purpose)
+// so before running cypress to another new domains we need to tell cypress i.e cy.origin and you need to identify it 
+// using this will let cypress know that we are intentionlly changing domain
+// so this cy.origin takes two parameters, 1st - url and 2nd - function and most important
+// whatever we have to do the actions on this domain should be wrapped in this 2nd  argument only
+
+// Test 5 understanding 
+// 1. How to make child windows handle in own tab
+// 2. if we change the tab for the new domain then how to handle it with origin method
+
+// Table 
+// in css the syntax to write css for the nth index i.e. the number of column in the table and can be written as -"parent class name child class name:nth-child(2)"
 																									
-																									
-																									
-																									
-																									
-																									
-																									
+// mouse hover popup
+// the cypress do not have any function that satisfy this functionality, but there is one jquery method by which it is possible to test this.
+// that jquery method is "Show()""
+	
+// cypress has an ability to click on hidden element as well, it is not visible but cypress handles it internally
+//Cypress has na ability to click on hidden element, here cypress uses one command which forcefully click on the hidden button
+// i.e. herein this case on hover we see two options, so instead of checking for the options displayed on hover, this cypress command will forcefully click directly on top
+// so the above line of code can be written as 
+// cy.contains('Top').click({ force: true })
+// this is done without even opening the popup
+		
+// cypress has ability to manipulate the DOM
+// you can travers to siblings with next() and it works only on get
+// mouse hover events are not supported in cypress, alternatively use jquery or force click
+//invoke() is a Cypress command that wraps and executes jQuery methods.
 																									
 																									
 																									
