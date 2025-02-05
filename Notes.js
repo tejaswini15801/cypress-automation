@@ -142,8 +142,18 @@
 // mouse hover events are not supported in cypress, alternatively use jquery or force click
 //invoke() is a Cypress command that wraps and executes jQuery methods.
 																									
-																									
-																									
+// to open new tab 
+// we need to use the jquery method to get the value of attribute in cypress, as cypress does not support this kind of action.
+// it is "prop()" method, which will help to get the property value i.e. attribute value
+// we use origin when we are intentionally changing the domain from the original domain.
+// origin method takes two parameters, first is the url where we are navigating and 2nd can be a nameless function in which we  give the main actions we are going to perform on the new domain
+// before performing any action on the new domain we need to land on that new domain using visit
+
+// frame - A html document embedded in the another html document
+// to switch to mini html documet in frame we need to make cypress understand that whatever operation we are performing are not the part of main html, it is the part of frames
+// we need to install a plugin using - npm install -D cypress-iframe, 
+// and then we need to import it in this file using - import 'cypress-iframe'- importing will give the autosyggestions while writing the commands
+																							
 																									
 																									
 																									
