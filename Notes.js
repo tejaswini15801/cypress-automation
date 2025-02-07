@@ -153,20 +153,43 @@
 // to switch to mini html documet in frame we need to make cypress understand that whatever operation we are performing are not the part of main html, it is the part of frames
 // we need to install a plugin using - npm install -D cypress-iframe, 
 // and then we need to import it in this file using - import 'cypress-iframe'- importing will give the autosyggestions while writing the commands
-																							
+	
+// calender tests
+// we can click on any field based on the text in cypress
+// in this month's array this css have 12 matching elements so we can take each month depending on the index value starting from 0th index
+//we are using -1 above bcoz the array start from 0th index
+// need to use number constructor from js as the monthNumber we usedis in string so to convert it in number we must first convert it to number by wraping that element
 																									
+// End to end e-commerce test
+// :contains is jquery method
+// this method is used to get the yeilded element after resolving the promise, it is a locator
+// :contains is jquery method- to call a var in this method we need to add $ sign before the var name and when we use var name we cannot defin it inside the quotes we must replace the quotes with `` sign in this case																									
 																									
+// Fixtures - to load the external file data in the spec files
+// for this all the files should be loaded inside the fixtures folder
+// by default cypress searched in the fixtures folder when we try to load the data
+// it will search the data in the fixtures folder and yeild a data
+// This fixture method will read the entire json and convert that data content into javascript object. so here data is a variable where all the this object will be stored
+// so using this data i can drive that data here																								
+// the scope of this block is only inside it, so to handle this simply attach this data to class instance variable i.e. this, this refers to the current file object. so it will be this.data will be globally available. Any property we attach to this, that keyword is accessible across file.																									
+// this is just reloading the data
+// before annotation - this is a hook which will execute before any test it runs
+// it run once before all tests
+																								
+// Global configurations for cypress
+// the cases where system takes time to load data like while searching and uploading file. to handle this in one go we can define the global time out in cypress config file where it will be accessible across the project
+// for this global configuartion for diffenent functionalities the commands are given in the settings module in cypress
+// once we define this in config file we need to call it where ever needed using "cypress.config('<command>',<value>)"																							
+// we can give the default timeout value in the config file for the respective command otherwise can overwrite in the value where ever needed in file																							
 																									
-																									
-																									
-																									
-																									
-																									
-																									
-																									
-																									
-																									
-																									
+// Page object design pattern - famous pattern across test industry
+// having the locators hardcoded is also not a good approach, so we should drive this from external places
+// Create a folder and respective page files under it in the "Support" folder.
+// all the locators info in this will act as a global source of the different object being called across the project files
+// creating obect for the class created in the support folder so that we can access any method from that class                 
+// we cannot use "this.data.username" here as this should be mentioned only in test case we cannot use it here also we cannot drive the test data in page object files																								
+// so we need to make this data parameterized
+																								
 																									
 																									
 																									
