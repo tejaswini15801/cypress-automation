@@ -190,16 +190,53 @@
 // we cannot use "this.data.username" here as this should be mentioned only in test case we cannot use it here also we cannot drive the test data in page object files																								
 // so we need to make this data parameterized
 																								
+// we can create custom commands - so that we can wrap reusable codeas one command
+// so this used when we have the common set of code in multiple projects, for that we can generalise it using custome command 
+// steps - 
+// 1. copy the code
+// 2. go to support directory
+// 3. go to commands.js file under the same directory
+// 4. tell cypress you are gpoing to create new command in below way
+// Cypress.Commands.add('<CommandName>', ()=>{ <Code> })
+// in this first argument will be command name and second argument will be where actual code goes in 																									
+// So i can use this command where ever it is needed using "cy.<CommandName>"
+// when we define it and is the npt part of cypress command the cypress will by default check in the command file
+// it is kind of reusable method
+// this is the second method to create the reusable codes
+// first is by creating page objects																									
 																									
+// CAse 1 - if we want to pause the test in middle of execution 
+//cy.pause()- can pause the execution in the test runner until we click on the resume button	
+
+// case 2 - if we can to inspect in middle of execution 
+// cy.pause()
+
+// cy.log() - at run time it will create new step and can print data in the logs
+
+// Assertion test data should go from the actual test. only page objects and their relevant method action should come from page object files
+// whenever we create object for any class we need to make sure that the class is imported
+
+// without importing page class in the spec file cypress will not pick up you function 																								
 																									
-																									
-																									
-																									
-																									
-																									
-																									
-																									
-																									
+// Environmental variables - 
+// if there are values that i want to set globally and apply to all test cases then instead of  reusing them in all test cases we can write in env. variable, and we can use them across framework
+// you will get the default env setting in cypress setting tab																								
+// then use this in config file of project - env: {},
+// using the we can define any value e.g. url, changing this in config under env, will change across the system
+// So if we define the bas url in config to call that we use, Cypress.config('Property value') if durectly declared
+// but if use env in config we need to retrive it using "Cypress.env('url')""- changed this in test11 in and it worked:)
+
+//  to run test - by passing the values from terminal as commands	
+// To run the test by giving there env variables in command
+// command should be as belows
+// npx cypress run --spec <spec file path> --env url="<base url>"
+// the url we gave in the terminal will have preference over the url we set in the env-config
+// this is how we can overwrite in run time
+//npx cypress run --spec C:\Users\hb\Cypress\cypress-automation\cypress\Integration\Examples\Test11.js --headed --browser chrome --env url="https://rahulshettyacademy.com"
+// similarly we can use userid and password in the fields
+// whatever things we overwrite in the cypress framework are highlighted in the color in the setting file of cypress in test rnner
+// by this we can identify which are default settings are which we twicked
+
 																									
 																									
 																									

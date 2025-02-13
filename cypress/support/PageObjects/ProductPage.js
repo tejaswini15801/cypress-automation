@@ -1,3 +1,5 @@
+import CartPage from "../../support/PageObjects/CartPage"
+
 class ProductPage {
  
     // Method1
@@ -6,8 +8,17 @@ class ProductPage {
     }
 
     // Method2
-    verifyCardLimit(){
-        cy.get('app-card').should("have.length", 4)
+    getCardCount(){
+        return cy.get('app-card')
+    }
+
+    selectFirstProduct(){
+        cy.get('app-card').eq(2).contains('button', 'Add').click()
+    }
+
+    goToCart(){
+        cy.contains('a', 'Checkout').click()
+        return new CartPage()
     }
 
     // method3
@@ -21,3 +32,5 @@ class ProductPage {
         )
     }
 }
+
+export default ProductPage

@@ -15,8 +15,8 @@ describe('End to end e-commerce test', function () {
     it('Submit order', function () {
         
         const productName = this.data.productName
-
-        cy.visit('https://rahulshettyacademy.com/loginpagePractise/#')
+        Cypress.env('url')
+        cy.visit (Cypress.env('url')+('/loginpagePractise/#'))
         cy.get("#username").type(this.data.username);                                      //.type("rahulshettyacademy")
         cy.get("#password").type(this.data.password);                                      //.type("learning")
         cy.contains("Sign In").click()
