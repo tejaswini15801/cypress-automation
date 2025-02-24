@@ -14,7 +14,7 @@ describe('End to end e-commerce test', function () {
 
         const productName = this.data.productName
         
-        this.homepage.goTo('https://rahulshettyacademy.com/loginpagePractise/#')
+        this.homepage.goTo(Cypress.env('url')+('/loginpagePractise/#'))
         const ProductPage = this.homepage.login(this.data.username, this.data.password)
 
         ProductPage.pageValidation()
@@ -26,9 +26,9 @@ describe('End to end e-commerce test', function () {
             expect(sum).to.be.lessThan(200000);
         })
         const confirmationPage = cartPage.checkoutItems()
-        // confirmationPage.submitformDetails()
-        // cy.wait(6000)
-        // confirmationPage.getAlertMessage().should('contain', "Success!");
+        confirmationPage.submitformDetails()
+        cy.wait(6000)
+        confirmationPage.getAlertMessage().should('contain', "Success");
 
     
     })

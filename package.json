@@ -3,14 +3,31 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npx cypress run",
+    "headTest": "npm cypress run --headed",
+    "chromeTest": "npx cypress run --browser chrome",
+    "recordDashboardTest": "npx cypress run --record --key 1828f5e4-6af4-450a-a424-d808844507a5",
+    "GreenKartTest": "npx cypress run --spec \"cypress/integration/GreenKart/*\"",
+    "SmokeTest": "npx cypress run --spec \"cypress/integration/GreenKart/Test1.js\"",
+    "testFiles": "**/*.feature",
+    "pluginsFile": "cypress/plugins/index.js",
+    "supportFile": "cypress/support/index.js"
   },
+
+  "cypress-cucumber-preprocessor": {
+  "stepDefinitions": "cypress/Integration/Examples/BDD/ecommerce"
+ },
+
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^22.0.1",
+    "@cypress/browserify-preprocessor": "^3.0.2",
     "@types/cypress": "^1.1.6",
     "cypress": "^14.0.0",
-    "cypress-iframe": "^1.0.1"
+    "cypress-iframe": "^1.0.1",
+    "cypress-mochawesome-reporter": "^3.8.2",
+    "esbuild": "^0.25.0"
   }
 }

@@ -237,20 +237,60 @@
 // whatever things we overwrite in the cypress framework are highlighted in the color in the setting file of cypress in test rnner
 // by this we can identify which are default settings are which we twicked
 
+
+// integrating mochawesome reporting framework
+// by this we get video attached for each test we run
+// even if we run 100 tests it will create report for all 100 tests with video
+// for that we need to install the framework using "npm i --save-dev cypress-mochawesome-reporter" command
+// then to use reporter only add the attribute for reporter in config file
+// also we need add a listener in config, in the code line if "on" is mentioned then it is a listener
+// why listeners are reuired? --> when the tests are running this reporter has to listen to the test execution whether it is passor fait also it has to capture a video 
+// so if add this listener to the setup node events is the place where we can twick the behaviour of the cypress config 
+// now after adding listeners we need to register them, this can be done in the support package. (support>e2e)
+																								
+// to see the reports of all the test cases from the project, we need to create the cypress cloud account where we can create a project and link it with cypress tests by unique project ID, by which i can see all the test results on th edashboard
+
+// All the parameters required in command line run to record the tests in dashboard --> Cypress run-record-key																									
 																									
+// understanding the scripts in package.json file
+// "test": "npx cypress run", finds the executable file from bin
+// so when we try to use npm run command in the terminal it goes to package>script object and checks what scripts it has to run  as we give the object name after the npm run command 
+// i.e. npm run test (test is object in script)
+// headed mode - when the object it "headTest" : "npm cypress run --headed", then we can run this by using command in terminal as "npm run headTest"
+// so instead of writing all these commands every time to run the test cases just define it in the package scripts and use just the defined object name to run that test cases.
+// e.g = "recordDashboardTest" : "npx cypress run --record --key 1828f5e4-6af4-450a-a424-d808844507a5"																							
+// To run specific set of tests	use "GreenKartTest" : "npx cypress run --spec \"cypress/integration/GreenKart/*\""
+// so if we want to perform smoke test daily, we use simply that file name in the folder, and it will be written as 																						
 																									
-																									
-																									
-																									
-																									
-																									
-																									
-																									
-																									
-																									
-																									
-																									
-																									
+// Cucumber BDD integration to framework
+// install the BDD cucumber through the install command given on the "https://github.com/badeball/cypress-cucumber-preprocessor"
+// BDD format is to wrap the readable code framework to make it more readable
+// and the way of language we use in cucumber is termed as gherkin																									
+// so the file we create for this is a feature file and definitely have the .feature extension
+// This is how the format is followed to write the feature
+//Feature: End to end Ecommerce validation - feature name and description
+// Scenario: Ecommerce products delivery 
+// Given I am on Ecommerce Page -- landing page
+// When I am login to the application -- action items
+// And I add items to cart and checkout
+// And Validate the total price limit
+// Then select the country submit and verify Thankyou -- outcome
+// under BDD we need to create another code linking folder with same name as of the feature file
+// cucumber and mocha are two testing frameworks there are few things which are different but there two compliment each other
+// just like the mocha has the anootations like "before" in the mocha for the tests we write
+// same way there are the annotaions in cucumber as well before starting the scriot execution.
+// to write these annotations we can create the separate file in cucumber
+// in cucumber we write the same code just with plan english notations separated with the menthods
+// the goal of the section is to integrate cucumber to add a extra feature to our framework, this is imp when the projects with the requirement came for the BDD plan english cucumber features
+// we use this keyword when are using the function outside the block	
+// we are using function here are this. does not work with anonomous function like the pipe operator "=>" 																							
+
+// parameterize test data using scenario outline and tags to group 
+// we can drive the external data using cypress fixtures, without cypress fixtures we can also drive the data from feature files using pure cucumber terminologies																								
+// giving the data in table format in the feature file on the login step, cucumber considers this as a data table
+// these tables are recognized by 0 and 1 indexes, which means if i want the data of first row then i'll call it in js file from feature file as [1][0] which means 1st row and first column 
+
+																							
 																									
 																									
 																									

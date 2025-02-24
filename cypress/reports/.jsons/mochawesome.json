@@ -1,0 +1,107 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-02-17T14:42:31.274Z",
+    "end": "2025-02-17T14:42:51.889Z",
+    "duration": 20615,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "126377a8-a755-4f54-a9a5-9230e58de939",
+      "title": "",
+      "fullFile": "cypress\\integration\\examples\\Test9.js",
+      "file": "cypress\\integration\\examples\\Test9.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "4c49d4cc-e3c1-4d9f-99e0-9a309acf4fa2",
+          "title": "frames test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Handling frames",
+              "fullTitle": "frames test Handling frames",
+              "timedOut": null,
+              "duration": 17335,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// frame - A html document embedded in the another html document\n// to switch to mini html documet in frame we need to make cypress understand that whatever operation we are performing are not the part of main html, it is the part of frames\n// we need to install a plugin using - npm install -D cypress-iframe, \n// and then we need to import it in this file using - import 'cypress-iframe'\ncy.visit(\"https://rahulshettyacademy.com/AutomationPractice/\");\n//to load a frame in cypress using the iframe commands\ncy.frameLoaded('#courses-iframe');\ncy.iframe().find(\"a[href*='mentorship']\").eq(0).click();\ncy.wait(6000);\n//cy.iframe().find(\"h1[class*='pricing-title']\").should('have.length', 1); - gave incorrect result\ncy.iframe().find(\"h1[class*='pricing-title']\").wait(6000).should('have.length', 2);",
+              "err": {},
+              "uuid": "8e1d8606-f67d-4672-a32f-d6abfdcc4a7e",
+              "parentUUID": "4c49d4cc-e3c1-4d9f-99e0-9a309acf4fa2",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "8e1d8606-f67d-4672-a32f-d6abfdcc4a7e"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 17335,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress\\reports\\.jsons",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "video": true,
+        "videoUploadOnPasses": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

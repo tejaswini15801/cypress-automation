@@ -15,3 +15,11 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
+import 'cypress-mochawesome-reporter/register';
+
+const { addCucumberPreprocessor } = require("@badeball/cypress-cucumber-preprocessor");
+
+module.exports = (on, config) => {
+  on("file:preprocessor", addCucumberPreprocessor());
+};
+
