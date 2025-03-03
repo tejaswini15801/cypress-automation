@@ -1,5 +1,5 @@
 Feature: End to end Ecommerce validation
-
+@Regression
     Scenario: Ecommerce products delivery
         Given I am on Ecommerce Page
         When I am login to the application
@@ -7,6 +7,7 @@ Feature: End to end Ecommerce validation
         And Validate the total price limit
         Then select the country submit and verify Thankyou
 
+@Smoke
     Scenario Outline: Ecommerce products delivery
         Given I am on Ecommerce Page
         When I am login to the application
