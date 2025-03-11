@@ -291,8 +291,23 @@
 // these tables are recognized by 0 and 1 indexes, which means if i want the data of first row then i'll call it in js file from feature file as [1][0] which means 1st row and first column 
 
 																							
-																									
-																									
+// the packages we have in out package file, does not creates the json results
+// cucumber can only generate messages of results, that mesaage to json file we have to do for that we need to download a plugin i.e. json formatter 																								
+
+// messages --> json file --> html
+
+
+// CYPRESS INTERCEPT
+// Intercept method manage the behaviour of HTTP requests
+// modify real HTTP responses, changing the body, headers, or HTTP status code before they are received by the browser.
+// Modify an HTTP request's body, headers, and URL before it is sent to the destination server
+// Help us to perform Integration Testing between UI and Back-end services
+
+// we can make the case pass in case we are gettinh dynamic data everything we load the http url using cypress intercept
+
+// Mock http responses for generating stub data to test edge scenario
+// Scenarion - when the script is written such that the request response we get is single response, but when the request sometimes provides multiple responses how can we still make test pass
+// 
 																									
 																									
 																									

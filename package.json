@@ -13,11 +13,12 @@
     "pluginsFile": "cypress/plugins/index.js",
     "supportFile": "cypress/support/index.js"
   },
-
   "cypress-cucumber-preprocessor": {
-  "stepDefinitions": "cypress/Integration/Examples/BDD/ecommerce"
- },
-
+    "json": {
+      "enabled": true,
+      "output": "cypress/cucumberReports/results.json"
+    }
+  },
   "author": "",
   "license": "ISC",
   "description": "",
@@ -28,6 +29,7 @@
     "cypress": "^14.0.0",
     "cypress-iframe": "^1.0.1",
     "cypress-mochawesome-reporter": "^3.8.2",
-    "esbuild": "^0.25.0"
+    "esbuild": "^0.25.0",
+    "multiple-cucumber-html-reporter": "^3.9.2"
   }
 }
