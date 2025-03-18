@@ -307,7 +307,19 @@
 
 // Mock http responses for generating stub data to test edge scenario
 // Scenarion - when the script is written such that the request response we get is single response, but when the request sometimes provides multiple responses how can we still make test pass
-// 
+// cy.request - helps to do all API calls
+
+// JWT token injecting
+// once we login jwt token is generated, using that token can any user to login into that account
+// injecting JWT session token into browser local storage with cypress
+
+// we can crete a env variables whihc will be available through out the project file globally as below
+//Cypress.env('token',response.body.token); ----- in this token is a variable name where this token will be stored
+
+// How to save the login tokens in browser local storage using cypress
+// before making the visit call to the app url we  need to save the login token in the local browser storage
+// In visit method comes with setting options, we can set the local storage info in this options of visit method
+// so perform any custom actions before hitting url we can place the same command after the url in same curly braces
 																									
 																									
 																									

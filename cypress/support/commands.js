@@ -23,3 +23,22 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+// Cypress.Commands.add("selectProduct", (productName) => {
+//     cy.get('h4.card-title').each(($el, index, $list) => {
+//         if($el.text().includes(productName))
+//         {
+//             cy.get('button.btn.btn-info').eq(index).click()
+//         }
+//     })
+// make login api calls to extract the response token using cypress
+Cypress.Commands.add("LoginAPI", () => {   
+    return cy.request('POST', "https://rahulshettyacademy.com/api/ecom/auth/login", 
+        { userEmail: "tejaswini.mali1582001@gmail.com", userPassword: "Admin@123" }
+    ).then((response) => {
+        expect(response.status).to.eq(200)
+        Cypress.env('token', response.body.token);
+
+    });
+
+})
