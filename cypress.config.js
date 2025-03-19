@@ -1,44 +1,36 @@
 const { defineConfig } = require("cypress");
-const browserify = require("@cypress/browserify-preprocessor");
-const {
-  addCucumberPreprocessorPlugin,
-} = require("@badeball/cypress-cucumber-preprocessor");
-const {
-  preprendTransformerToOptions,
-} = require("@badeball/cypress-cucumber-preprocessor/browserify");
+const createBundler = require("@bahmutov/cypress-esbuild-preprocessor");
+const { addCucumberPreprocessorPlugin } = require("@badeball/cypress-cucumber-preprocessor");
+const createEsbuildPlugin = require("@badeball/cypress-cucumber-preprocessor/esbuild").createEsbuildPlugin;
 
- async function setupNodeEvents(on,config)
- {
+async function setupNodeEvents(on, config) {
   await addCucumberPreprocessorPlugin(on, config);
 
-  on(
-    "file:preprocessor",
-    browserify(preprendTransformerToOptions(config, browserify.defaultOptions)),
-  );
+  on("file:preprocessor", createBundler({
+    plugins: [createEsbuildPlugin(config)]
+  }));
 
-  // Make sure to return the config object as it might have been modified by the plugin.
   return config;
- }
-
+}
 
 module.exports = defineConfig({
   defaultCommandTimeout: 6000,
-
   env: {
     url: "https://rahulshettyacademy.com",
   },
-  reporter: 'cypress-mochawesome-reporter',
-
+  reporter: "cypress-mochawesome-reporter",
   retries: {
     runMode: 1,
-
   },
   projectId: "nodpcq",
 
-
   e2e: {
-  setupNodeEvents,
-    specPattern: 'cypress/integration/examples/*.js'
+    setupNodeEvents,
+    specPattern: "cypress/integration/examples/*.js", // Ensure your test files match this pattern
+    supportFile: "cypress/support/e2e.js", // Ensure this file exists
+  },
 
+  compilerOptions: {
+    types: ["cypress"],
   },
 });

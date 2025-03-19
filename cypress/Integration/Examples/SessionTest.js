@@ -2,7 +2,7 @@
 // to set env token variables (which is globally available)
 // how to exceute options for visit method i.e on/before load
 
-/// <reference types= "cypress" />
+/// <reference types="cypress" />
 
 const { Then } = require("@badeball/cypress-cucumber-preprocessor")
 describe('JWT Session', () => {

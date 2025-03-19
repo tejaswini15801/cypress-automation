@@ -33,7 +33,7 @@
 //     })
 // make login api calls to extract the response token using cypress
 Cypress.Commands.add("LoginAPI", () => {   
-    return cy.request('POST', "https://rahulshettyacademy.com/api/ecom/auth/login", 
+    return cy.request('POST', "https://rahulshettyacademy.com/client/", 
         { userEmail: "tejaswini.mali1582001@gmail.com", userPassword: "Admin@123" }
     ).then((response) => {
         expect(response.status).to.eq(200)

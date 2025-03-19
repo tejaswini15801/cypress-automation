@@ -24,12 +24,14 @@
   "description": "",
   "devDependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^22.0.1",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.4",
     "@cypress/browserify-preprocessor": "^3.0.2",
     "@types/cypress": "^1.1.6",
     "cypress": "^14.0.0",
     "cypress-iframe": "^1.0.1",
     "cypress-mochawesome-reporter": "^3.8.2",
     "esbuild": "^0.25.0",
+    "get-tsconfig": "^4.10.0",
     "multiple-cucumber-html-reporter": "^3.9.2"
   }
 }
