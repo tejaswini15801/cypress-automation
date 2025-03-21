@@ -28,6 +28,7 @@ module.exports = defineConfig({
     setupNodeEvents,
     specPattern: "cypress/integration/examples/*.js", // Ensure your test files match this pattern
     supportFile: "cypress/support/e2e.js", // Ensure this file exists
+    downloadsFolder: "cypress/downloads"
   },
 
   compilerOptions: {
