@@ -321,11 +321,23 @@
 // In visit method comes with setting options, we can set the local storage info in this options of visit method
 // so perform any custom actions before hitting url we can place the same command after the url in same curly braces
 																									
+
+// Cypress database integration
+// - setup cloud SQL server through azure portal
+// - create tables in database
+// - install cypress sql server plugin
+// - configure connection properties and call SQL queries through test
+// - feed the values into browser applications from database tables in cypress tests
 																									
-																									
-																									
-																									
-																									
+// Browser(Engine) - JS code --> Client side environment (Front end)
+// Node(Engine) - JS code --> Back end application/environment. i.e. accessing files - fs, databaseaccess
+// and cypress plays role in the browser not at the node level
+
+// As browser does not have any clue about accessing browsers, this was brawback initially
+// solution from cypress - write all your db code as a task, 
+// introduced a feature called tasks & these tasks will be defined in config.js files
+// Task - (Files, DB) --> Config.js, wrap this task and name it
+// E.g. (ExcelToJson)-> cy.task(ExcelToJson)------ using this will execute the code on node engine by coming out from the browser  & it switch back to the browser after the task is completed																						
 																									
 																									
 																									
