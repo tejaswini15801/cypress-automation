@@ -339,8 +339,16 @@
 // Task - (Files, DB) --> Config.js, wrap this task and name it
 // E.g. (ExcelToJson)-> cy.task(ExcelToJson)------ using this will execute the code on node engine by coming out from the browser  & it switch back to the browser after the task is completed																						
 																									
-																									
-																									
+// interview question - what are tasks? how it works and why it's used?
+
+
+// Introduction to excelJS node module and setting up JS project
+// Create a directory in same project folder then install node modules using npm init which is get installed outside the folder- go inside it
+// again install npm init
+
+// to resolve the promise --- we can do that in two ways 1) by using then function 2) by using await
+// To use await before the code line which is not supported is not sufficient, when awaits comes, async functions comes along with it and then we need to wrap whole code in this async function
+// then at the end we need to call that defined function																								
 																									
 																									
 																									
